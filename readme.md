@@ -51,15 +51,13 @@ Requirements:
 ### The attacker
 
 ```
-cd attacker
-deno run --allow-net --allow-read --watch .\main.ts
+deno task --config .\attacker\deno.json dev
 ```
 
 ### The defender
 
 ```
-cd defender
-deno run --allow-net --allow-read --watch .\main.ts
+deno task --config .\defender\deno.json dev
 ```
 
 ## Testing
@@ -69,5 +67,5 @@ There are integration tests which require the server to be running, so run first
 Then:
 
 ```
-deno test --allow-net --unsafely-ignore-certificate-errors
+deno task --config .\defender\deno.json test
 ```
