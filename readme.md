@@ -46,7 +46,7 @@ The hosts file needs these inputs:
 
 Requirements:
 
-- deno 2.0.0-rc.5
+- deno 2.0.0
 
 ### The attacker
 
