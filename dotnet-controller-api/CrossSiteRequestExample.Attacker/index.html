@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<h2>Form GET</h2>
+<form name="get_form" action="https://defender.local:3000/get" method="get">
+    <input name="get_content" value="some content">
+    <br/>
+    <br/>
+    <button type="submit">Submit form (simple request)</button>
+    <br/>
+    <br/>
+    If you're on Firefox, for these buttons to send cookies, you must turn off Enhanced Tracking Protection:
+    <br/>
+    <br/>
+    <button type="submit" onclick="ajax_get(event, false); return false;">Submit form with AJAX (simple CORS request)</button>
+    <br/>
+    <br/>
+    <button type="submit" onclick="ajax_get(event, true); return false;">Submit form with AJAX (complex preflighted CORS request)</button>
+</form>
+<h2>Form POST</h2>
+<form name="post_form" action="https://defender.local:3000/post" method="post">
+    <input name="post_content" value="some content">
+    <br/>
+    <br/>
+    <button type="submit">Submit form</button>
+    <br/>
+    <br/>
+    If you're on Firefox, for these buttons to send cookies, you must turn off Enhanced Tracking Protection:
+    <br/>
+    <br/>
+    <button type="submit" onclick="ajax_post(event, false); return false;">Submit form with AJAX (simple CORS request)</button>
+    <br/>
+    <br/>
+    <button type="submit" onclick="ajax_post(event, true); return false;">Submit form with AJAX (complex preflighted CORS request)</button>
+</form>
+</body>
+<script>
+    async function ajax_get(e, preflight) {
+        e.preventDefault();
+
+        const url = new URL('https://defender.local:3000/get')
+
+        url.searchParams.set('get_content', document.querySelectorAll('[name="get_content"]')[0].value);
+
+        const headers = {};
+
+        if (preflight) {
+            // Force a complex request (not a simple request https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests)
+            headers['custom-header'] = 'value';
+        }
+
+        const response = await fetch(url, {
+            headers,
+            method: 'get',
+            credentials: 'include', // Works in Chrome 129. Firefox 130 needs to have Enhanced Tracking Protection turned off.
+        });
+
+        console.log(await response.json());
+    }
+
+    async function ajax_post(e, preflight) {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append('post_content', document.querySelectorAll('[name="post_content"]')[0].value);
+
+        const headers = {};
+
+        if (preflight) {
+            // Force a complex request (not a simple request https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests)
+            headers['custom-header'] = 'value';
+        }
+
+        const response = await fetch('https://defender.local:3000/post', {
+            headers,
+            method: 'post',
+            // Sends as application/x-www-form-urlencoded
+            body: new URLSearchParams(formData),
+            credentials: 'include', // Works in Chrome 129. Firefox 130 needs to have Enhanced Tracking Protection turned off.
+        });
+
+        console.log(await response.json());
+    }
+
+    // window.onload = function(){
+    //     document.forms['post_form'].submit();
+    // }
+</script>
+</html>
