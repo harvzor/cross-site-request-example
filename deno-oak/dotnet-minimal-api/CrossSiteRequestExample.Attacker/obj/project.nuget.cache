@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ml2qHaQkK1g=",
+  "success": true,
+  "projectFilePath": "C:\\data\\dev\\random\\cross-site-request-example\\CrossSiteRequestExample.Attacker\\CrossSiteRequestExample.Attacker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\harvey.williams\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0-rc.2.24474.3\\microsoft.aspnetcore.openapi.9.0.0-rc.2.24474.3.nupkg.sha512",
+    "C:\\Users\\harvey.williams\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

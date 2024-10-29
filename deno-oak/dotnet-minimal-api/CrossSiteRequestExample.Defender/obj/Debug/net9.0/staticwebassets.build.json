@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "iEcZPnmeqmswhvbP/I7eHKYOruNuL7vxWksRWE5mGpI=",
+  "Source": "CrossSiteRequestExample.Defender",
+  "BasePath": "_content/CrossSiteRequestExample.Defender",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
