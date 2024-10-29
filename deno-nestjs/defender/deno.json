@@ -1,0 +1,20 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-read --allow-env --allow-net=defender.local:3000 --watch main.ts",
+    "test": "deno test --allow-net=defender.local:3000 --unsafely-ignore-certificate-errors"
+  },
+  "imports": {
+    "@nestjs/common": "npm:@nestjs/common@^10.4.4",
+    "@nestjs/core": "npm:@nestjs/core@^10.4.4",
+    "@nestjs/platform-express": "npm:@nestjs/platform-express@^10.4.4",
+    "@std/expect": "jsr:@std/expect@^1.0.4",
+    "@std/http": "jsr:@std/http@^1.0.7",
+    "@std/testing": "jsr:@std/testing@^1.0.3",
+    "@types/cookie-parser": "npm:@types/cookie-parser@^1.4.7",
+    "cookie-parser": "npm:cookie-parser@^1.4.6"
+  },
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

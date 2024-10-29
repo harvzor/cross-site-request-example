@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Deno: attacker" type="DenoConfigurationType" inputPath="$PROJECT_DIR$/attacker/main.ts" programParameters="run --allow-net --allow-read --allow-env --watch" workingDirectory="$PROJECT_DIR$/attacker">
+    <method v="2" />
+  </configuration>
+</component>
