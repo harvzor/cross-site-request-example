@@ -50,9 +50,7 @@ public class IndexController : ControllerBase
                 // > Note that if a cookie's SameSite attribute is set to Strict or Lax, then the cookie will not be sent cross-site, even if credentials is set to include.
                 SameSite = SameSiteMode.None,
                 Secure = true,
-                MaxAge = new TimeSpan(1000,
-                    0,
-                    0),
+                MaxAge = new TimeSpan(1000, 0, 0),
                 Domain = $".{url.Host}", // Does not seem to matter.
                 // https://stackoverflow.com/a/67001424 claims that this is important, but in my testing, it did not make a difference.
                 HttpOnly = false
